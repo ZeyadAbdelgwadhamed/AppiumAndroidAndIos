@@ -25,7 +25,9 @@ public class BaseTest {
         service.start();
         UiAutomator2Options options=new UiAutomator2Options();
         options.setDeviceName("Pixel 9");
-        options.setApp("src//main//resources//ApiDemos-debug.apk");
+//        options.setApp("src//main//resources//ApiDemos-debug.apk");
+        options.setApp("src/main/resources/General-Store.apk");
+
         driver =new AndroidDriver(service,options);
     }
 
