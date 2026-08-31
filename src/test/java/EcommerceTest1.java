@@ -16,10 +16,11 @@ public class EcommerceTest1 extends BaseTest{
                         + ".scrollIntoView(new UiSelector().text(\"Egypt\"))"
         ));
         driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"Egypt\"]\n")).click();
-//        driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"com.androidsample.generalstore:id/nameField\"]")).sendKeys("Zezo");
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"com.androidsample.generalstore:id/nameField\"]")).sendKeys("Zezo");
         driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"com.androidsample.generalstore:id/btnLetsShop\")")).click();
-        String massage= driver.findElement(By.xpath("(//android.widget.Toast)[1]")).getText();
-        Assert.assertEquals(massage,"Please enter your name");
+//        String massage= driver.findElement(By.xpath("(//android.widget.Toast)[1]")).getText();
+//        Assert.assertEquals(massage,"Please enter your name");
+        // I was command the assertion due need to the invalid scenario when the user dosn't enter his name
 
     }
 }
