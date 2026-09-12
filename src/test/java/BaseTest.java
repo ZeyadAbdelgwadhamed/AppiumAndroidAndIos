@@ -24,7 +24,7 @@ public class BaseTest {
         service=new AppiumServiceBuilder().withIPAddress("127.0.0.1").usingPort(4723).build();
         service.start();
         UiAutomator2Options options=new UiAutomator2Options();
-        options.setDeviceName("Pixel 9");
+        options.setDeviceName("Pixel 9 Pro");
 //        options.setApp("src//main//resources//ApiDemos-debug.apk");
         options.setApp("src/main/resources/General-Store.apk");
 

@@ -1,13 +1,19 @@
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
-import org.testng.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 
-public class EcommerceTest2 extends BaseTest{
+import java.time.Duration;
+import java.util.function.Function;
+
+public class EcommerceTest3 extends BaseTest{
+
+
     @Test
-    public void UserCanPayItems(){
+    public void userCanPayMoreThanOneItem() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         driver.findElement(By.id("com.androidsample.generalstore:id/spinnerCountry")).click();
         driver.findElement(AppiumBy.androidUIAutomator(
@@ -17,20 +23,11 @@ public class EcommerceTest2 extends BaseTest{
         driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"com.androidsample.generalstore:id/nameField\"]")).sendKeys("Zezo");
         driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"com.androidsample.generalstore:id/btnLetsShop\")")).click();
 
-        driver.findElement(AppiumBy.androidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true).instance(0))"
-                        + ".scrollIntoView(new UiSelector().text(\"Jordan 6 Rings\"));"
-        ));
-
-        driver.findElement(By.xpath(
-                "//*[contains(@text,'Jordan 6 Rings')]"
-                        + "/ancestor::android.view.ViewGroup[1]"
-                        + "//*[@resource-id='com.androidsample.generalstore:id/productAddCart']")).click();
+        driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(0).click();
+        driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(1).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
-        String productName=driver.findElement(By.id("com.androidsample.generalstore:id/productName")).getText();
-        Assert.assertEquals(productName,"Jordan 6 Rings");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3000));
 
 
     }
+
 }
